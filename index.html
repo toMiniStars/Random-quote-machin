@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Quote Machin</title>
+    <script>
+        const bankOfQuotes = [
+                    {
+                quote: "Life is dead.",
+                author: "You."
+                    }, {
+                quote: "Fuck life",
+                author: "Me"
+                    }, {
+                quote: "The greatest glory in living lies not in never falling, but in rising every time we fall",
+                author: "Nelson Mandela"
+                    }, {
+                quote: "Life is what happens when you're busy making other plans",
+                author: "John Lennon",
+                    }
+                ];
+
+        window.onload = init;
+        
+        function init() {
+            genQuote()
+        }
+
+        function genQuote() {
+            var quoteSize = bankOfQuotes.length;
+            var randomNum = Math.floor(Math.random() * quoteSize);
+            var randomData = bankOfQuotes[randomNum];
+
+            document.getElementById("text").innerText = randomData.quote;
+            document.getElementById("author").innerText = randomData.author;
+
+        }
+    </script>
+    <style>
+        * {
+            font-size: 2rem;
+            text-align: center;
+            padding: 10px 10px 10px;
+        }
+        body {
+            background-image: url("image/stars.jpg");
+        }
+        #text {
+            background-color: gray;
+        }
+        #author {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <wrapper id="quote-box">
+        <div id="text"></div>
+        <div id="author"></div>
+        <button id="new-quote" onClick="genQuote();">New Quote</button>
+        <a href="twitter.com/intent/tweet" id="tweet-quote" target="_blank">Tweet Quote</a>
+    </wrapper>
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+</body>
+</html>
